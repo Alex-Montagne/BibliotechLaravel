@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,       // Créer les utilisateurs de test
             CategorieSeeder::class,  // Créer ensuite les catégories
             LivreSeeder::class,      // Puis les livres avec relations
+            VinyleSeeder::class,     // Puis les vinyles avec relations
         ]);
     }
 }

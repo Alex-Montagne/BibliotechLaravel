@@ -78,6 +78,12 @@
                             @enderror
                         </div>
 
+                        {{-- Inscription vinyles --}}
+                        <div class="mb-4">
+                            <input type="checkbox" class="form-check-input @error('vinyle') is-invalid @enderror" id="vinyle" name="vinyle" value="1">
+                            <label class="form-check-label" for="vinyle">Je m'inscris pour accéder aux vinyles</label>
+                        </div>
+
                         {{-- Bouton inscription --}}
                         <div class="d-grid">
                             <button type="submit" class="btn btn-success btn-lg">

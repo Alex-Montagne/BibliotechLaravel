@@ -48,10 +48,30 @@
                 <div class="card-body">
                     <i class="fas fa-check-circle fa-3x text-success mb-3"></i>
                     <h3 class="text-success">{{ $stats['livresDisponibles'] }}</h3>
-                    <p class="card-text text-muted fw-semibold">Disponibles</p>
+                    <p class="card-text text-muted fw-semibold">Livres disponibles</p>
                 </div>
             </div>
         </div>
+        @if(Auth::check() && Auth::user()->isVinyleUser())
+        <div class="col-md-3 mb-3">
+            <div class="card text-center h-100 border-secondary shadow-sm hover-shadow">
+                <div class="card-body">
+                    <i class="fas fa-record-vinyl fa-3x text-secondary mb-3"></i>
+                    <h3 class="text-secondary">{{ $stats['totalVinyles'] }}</h3>
+                    <p class="card-text text-muted fw-semibold">Vinyles au total</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <div class="card text-center h-100 border-info shadow-sm hover-shadow">
+                <div class="card-body">
+                    <i class="fas fa-compact-disc fa-3x text-info mb-3"></i>
+                    <h3 class="text-info">{{ $stats['vinylesDisponibles'] }}</h3>
+                    <p class="card-text text-muted fw-semibold">Vinyles disponibles</p>
+                </div>
+            </div>
+        </div>
+        @else()
         <div class="col-md-3 mb-3">
             <div class="card text-center h-100 border-warning shadow-sm hover-shadow">
                 <div class="card-body">
@@ -70,6 +90,7 @@
                 </div>
             </div>
         </div>
+        @endif
     </div>
 
     {{-- Livres mis en avant --}}
@@ -98,6 +119,34 @@
         @endif
     </div>
 
+    {{-- Vinyles mis en avant --}}
+    @if(Auth::check() && Auth::user()->isVinyleUser())
+    <div class="row mb-5">
+        <div class="col-12 mb-4">
+            <h2>
+                <i class="fas fa-record-vinyl text-secondary"></i>
+                Vinyles Recommandés
+            </h2>
+            <p class="text-muted">Découvrez une sélection de nos vinyles les plus populaires</p>
+        </div>
+
+        @if($vinylesEnVedette && $vinylesEnVedette->count() > 0)
+            @foreach($vinylesEnVedette as $vinyle)
+            <div class="col-md-4 mb-4">
+                <x-vinyle-card :vinyle="$vinyle" />
+            </div>
+            @endforeach
+        @else
+            <div class="col-12">
+                <div class="alert alert-info" role="alert">
+                    <i class="fas fa-info-circle"></i>
+                    Aucun vinyle disponible pour le moment.
+                </div>
+            </div>
+        @endif
+    </div>
+    @endif
+
     {{-- Appel à l'action & Fonctionnalités --}}
     <div class="row mt-5 mb-5">
         <div class="col-12">
@@ -114,6 +163,11 @@
                         <a href="{{ route('livres.index') }}" class="btn btn-primary btn-lg">
                             <i class="fas fa-book"></i> Voir tous les livres
                         </a>
+                        @if(Auth::check() && Auth::user()->isVinyleUser())
+                        <a href="{{ route('vinyles.index') }}" class="btn btn-secondary btn-lg">
+                            <i class="fas fa-record-vinyl"></i> Voir tous les vinyles
+                        </a>
+                        @endif
                         <a href="{{ route('livres.search') }}" class="btn btn-outline-secondary btn-lg">
                             <i class="fas fa-search"></i> Recherche avancée
                         </a>

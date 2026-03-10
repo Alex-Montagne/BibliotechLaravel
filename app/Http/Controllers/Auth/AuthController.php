@@ -43,6 +43,7 @@ class AuthController extends Controller
             'email' => $validated['email'],
             'password' => Hash::make($validated['password']),
             'role' => 'user', // Rôle par défaut
+            'is_vinyle_user' => $request->boolean('vinyle', false),
         ]);
 
         event(new Registered($user));

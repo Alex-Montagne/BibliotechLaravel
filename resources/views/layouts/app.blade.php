@@ -69,6 +69,55 @@
             background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1" opacity="0.1"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>') no-repeat center center;
             background-size: 60px 60px;
         }
+
+        /* Styles pour les couvertures de vinyles */
+        .vinyle-cover {
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 50%;
+        }
+
+        .vinyle-title {
+            font-size: 16px;
+            line-height: 1.3;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .vinyle-cover-laravel {
+            background: linear-gradient(135deg, #FF6B35 0%, #F7931E 100%);
+        }
+
+        .vinyle-cover-docker {
+            background: linear-gradient(135deg, #0EA5E9 0%, #0284C7 100%);
+        }
+
+        .vinyle-cover-mvc, .vinyle-cover-php {
+            background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
+        }
+
+        .vinyle-cover-default {
+            background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+        }
+
+        .vinyle-cover::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" opacity="0.2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>') no-repeat center center;
+            background-size: contain;
+        }
     </style>
 </head>
 <body class="bg-light">
@@ -93,10 +142,19 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                                                <a class="nav-link" href="{{ route('livres.index') }}">
-                            <i class="fas fa-book"></i> Catalogue
+                        <a class="nav-link" href="{{ route('livres.index') }}">
+                            <i class="fas fa-book"></i> Livres
                         </a>
                     </li>
+                    @auth
+                    @if(Auth::user()->isVinyleUser())
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('vinyles.index') }}">
+                            <i class="fas fa-record-vinyl"></i> Vinyles
+                        </a>
+                    </li>
+                    @endif
+                    @endauth
                     <li class="nav-item">
                         <a class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}" href="{{ route('about') }}">
                             <i class="fas fa-info-circle"></i> À propos

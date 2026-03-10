@@ -21,6 +21,7 @@ class User extends Authenticatable
         'email',
         'password',
         'role',
+        'is_vinyle_user',
     ];
 
     /**
@@ -68,5 +69,13 @@ class User extends Authenticatable
     public function isUser(): bool
     {
         return $this->role === 'user';
+    }
+
+    /**
+     * Vérifier si l'utilisateur a accès aux vinyles
+     */
+    public function isVinyleUser(): bool
+    {
+        return $this->is_vinyle_user;
     }
 }

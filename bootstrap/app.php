@@ -14,6 +14,11 @@ $app = Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware): void {
         // Faire confiance à tous les proxies (nécessaire pour Codespaces)
         $middleware->trustProxies(at: '*');
+        
+        // Enregistrer le middleware vinyle
+        $middleware->alias([
+            'vinyle' => \App\Http\Middleware\VinyleMiddleware::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

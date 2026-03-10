@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AccueilController;
 use App\Http\Controllers\LivreController;
+use App\Http\Controllers\VinyleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,12 @@ Route::resource('livres', LivreController::class);
 
 // Route supplémentaire pour la recherche (Séance 2)
 Route::get('/recherche', [LivreController::class, 'search'])->name('livres.search');
+
+// Routes CRUD Resource pour les vinyles
+Route::resource('vinyles', VinyleController::class)->middleware('vinyle');
+
+// Route supplémentaire pour la recherche de vinyles
+Route::get('/recherche-vinyles', [VinyleController::class, 'search'])->name('vinyles.search')->middleware('vinyle');
 
 // Route de démonstration pour comprendre les paramètres
 Route::get('/demo/hello/{nom?}', function ($nom = 'Étudiant') {
