@@ -8,25 +8,9 @@
 
 ---
 
-## 📖 **Documentation par Séance**
-
-| Séance | Documentation | Exercices | Code Source | Status |
-|---------|---------------|-----------|-------------|---------|
-| **Séance 1** | [📖 Guide S1](docs/seance-01/00-README.md) | [💪 Exercices S1](docs/seance-01/05-EXERCICES-PRATIQUES.md) | [📁 Code S1](docs/seance-01/) | ✅ **Terminé** |
-| **Séance 2** | [📊 Guide S2](docs/seance-02/00-README.md) | [💻 Exercices S2](docs/seance-02/05-TP-PRATIQUE-EXERCICES.md) | [🗄️ SQLite & ORM](docs/seance-02/) | ✅ **Terminé** |
-| **Séance 3** | [🎭 Guide S3](docs/seance-03/00-README.md) | [💪 Exercices S3](docs/seance-03/05-TP-PRATIQUE-EXERCICES.md) | [🎛️ Controllers & Views](docs/seance-03/) | ✅ **Terminé** |
-| **Séance 4** | [🔐 Guide S4](docs/seance-04/00-README.md) | [🔑 Exercices S4](docs/seance-04/05-TP-PRATIQUE-EXERCICES.md) | [🔒 Auth & Roles](docs/seance-04/) | ✅ **Terminé** |
-| **Séance 5** | [🚀 Guide S5](docs/seance-05/00-README.md) | [🌐 Exercices S5](docs/seance-05/05-TP-PRATIQUE-EXERCICES.md) | [📦 Production & SonarCloud](docs/seance-05/) | ✅ **Terminé** |
-
-
-
 **BiblioTech** est une application de gestion de bibliothèque moderne développée avec Laravel, conçue spécialement pour la formation BTS SIO SLAM. Le projet couvre progressivement tous les aspects du développement web professionnel : de l'architecture MVC à la production et au déploiement.
 
-### **🎓 Public Cible**
-- **Étudiants BTS SIO SLAM** - 2ème année
-- **Formateurs** en développement web
-- **Développeurs débutants** souhaitant apprendre Laravel
-- **Professionnels** en reconversion
+⭐Cette version contient des modifications permettant aux utilisateurs d'emprunter des vinyles. Pour cela, il faut cocher la case correspondante lors de l'inscription. 
 
 ### **🎪 Objectifs d'Apprentissage**
 1. **Maîtriser l'architecture MVC** avec Laravel
@@ -46,7 +30,7 @@ Le domaine de la gestion de bibliothèque offre un contexte idéal pour l'appren
 
 ## 🚀 **Installation Rapide**
 
-### **⭐ Option 1 : GitHub Codespace (Recommandé pour débuter)**
+### **⭐ Option 1 : GitHub Codespace**
 
 **Le plus simple pour commencer :**
 1. 🌐 Rendez-vous sur le repository GitHub
